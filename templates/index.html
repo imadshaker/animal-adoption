@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>Adoption d'animaux</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Adopter un animal<br />
+						De compagnie</h1>
+						<p>Consulter notre liste d'animaux offerts pour adoption</a>.</p>
+						<ul class="actions">
+							<li><a href="#animaux-disponibles" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Nos animaux</a></li>
+							<li><a href="/generic">Mise en adoption</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<h2>Nos animaux offerts<br />
+										pour adoption</a></h2>
+									<p>Rencontrez nos adorables compagnons en quête d'un foyer chaleureux et aimant ! Chaque animal dans notre refuge a une histoire unique et un cœur plein d'amour à offrir. De joyeux chiots espiègles aux chats calmes et câlins,
+										en passant par des lapins doux et des oiseaux chanteurs, nous avons une variété d'animaux prêts à devenir un membre précieux de votre famille.
+										Tous nos animaux sont examinés par un vétérinaire, vaccinés et prêts pour une nouvelle vie. En choisissant d'adopter, vous offrez non seulement un foyer
+										à un animal en besoin, mais vous ouvrez aussi votre cœur à une amitié inestimable. Parcourez nos profils en ligne pour trouver votre compagnon idéal et venez les rencontrer - ils sont impatients de vous voir !</p>
+								</header>
+								<a class="image main"><img src="{{ url_for('static', filename='images/adoption-chien.jpeg') }}" alt="Image d'un chien" /></a>
+
+							</article>
+
+						<!-- Animaux Disponibles pour Adoption -->
+						<section id="animaux-disponibles">
+							<h2>Animaux Disponibles pour Adoption</h2>
+							<div class="animaux-container">
+								{% for animal in animals %}
+								<div class="animal">
+									<h3><a href="/animal/{{ animal.id }}">{{ animal.nom }}</a></h3>
+									<p>Espèce: {{ animal.espece }}</p>
+									<p>Âge: {{ animal.age }}</p>
+									<!-- Autres détails de l'animal -->
+								</div>
+								{% endfor %}
+							</div>
+						</section>
+
+
+						<!-- Section de Recherche d'Animaux -->
+						<section class="animal-search">
+							<form action="/rechercher" method="GET">
+								<input type="text" name="q" placeholder="Rechercher des animaux..." required>
+								<input type="submit" value="Rechercher">
+							</form>
+
+						</section>
+
+					</div>
+
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+	</body>
+</html>
